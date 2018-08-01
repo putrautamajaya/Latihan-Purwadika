@@ -1,8 +1,52 @@
 <head>
     <title>Calculator - Putra</title>
+
+    <style>
+    .box 
+    {
+        border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        text-align: center;
+        width: 500px;
+        margin: 20px 0px 0px 20px;
+      
+    }
+
+    .blue-box 
+    {
+        background-color: blue;
+        color: #fff;
+        margin: 10px;
+        border-style: solid;
+        border-color: black;
+        border-width: 3px;
+        font-size: 50px;
+    }
+
+    [type = 'button']
+    {
+        margin: 5px 5px 5px 5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    /* .box-size
+    {
+        
+    } */
+    </style>
 </head>
 
-<p id="display"></p>
+
+<div class="box">
+
+<p class="blue-box" id="display"></p>
 <p id="hasil"></p>
 
 <br/><br/>
@@ -31,6 +75,8 @@
 <input type="button" onclick="calculation()" value="=">&nbsp;
 <input type="button" onclick="display(this.value)" value="+">
 
+</div>
+
 <script>
 
     let tampilan = '';
@@ -52,7 +98,7 @@
             if(fungsiArray[i] !='+' && fungsiArray[i-1] !='+' && fungsiArray[i-1] !=undefined)
             {
                 //save sementara array yg di gabungkan ke memori tempt.
-                tempt = fungsiArray[i].concat(fungsiArray[i-1])
+                tempt = fungsiArray[i-1].concat(fungsiArray[i])
                 //mengganti array terakhir dengan array gabungan.
                 fungsiArray[i] = tempt;
                 //menghapus array sebelum terakhir karna sudah di gabungkan ke array terakhir.
