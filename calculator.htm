@@ -40,23 +40,28 @@
     {
         let tempt = [];
 
+        //menambahkan tampilan setiap saat button di pencet.
         tampilan += val;
-
+        
+        //string tampilan di pecah menjadi array.
         fungsiArray = tampilan.split('');
 
         for(let i=0; i<fungsiArray.length; i++)
         {
+            //kalau misalkan array trakhir sama array sebelum terakhir bukan operator maka gabungkan array.
             if(fungsiArray[i] !='+' && fungsiArray[i-1] !='+' && fungsiArray[i-1] !=undefined)
             {
+                //save sementara array yg di gabungkan ke memori tempt.
                 tempt = fungsiArray[i].concat(fungsiArray[i-1])
+                //mengganti array terakhir dengan array gabungan.
                 fungsiArray[i] = tempt;
-                // fungsiArray.splice([i-1], 1);
-                // console.log(ungsiArray[i]);
-                
+                //menghapus array sebelum terakhir karna sudah di gabungkan ke array terakhir.
+                fungsiArray.splice([i-1], 1);
+                //i di kurang karna kita sudah menghapus 1 array. 
+                //agar i bisa di += 1 untuk lanjut ke array berikutny.
+                i--;
             }
         }
-
-        
 
         document.getElementById('display').innerHTML = tampilan;
 

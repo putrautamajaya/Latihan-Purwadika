@@ -232,12 +232,11 @@
 
 //////////////////////////////////////////////////////////////////////////
 
-// let buah = ['Banana', 'Orange',
-// 'Lemon', 'Apple', 'Mango'];
-// let buah2 = buah.slice(1);
-// console.log(buah2)
-// let buah4 = buah.slice(1,4);
-// console.log(buah4)
+let buah = ['Banana', 'Orange','Lemon', 'Apple', 'Mango'];
+let buah2 = buah.slice(1);
+console.log(buah2)
+let buah4 = buah.slice(1,4);
+console.log(buah4)
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -357,30 +356,30 @@
 //  console.log(xAsc)
 //  console.log(hasilJumlah)
 
-let x = [40, 100, 1, 5, 25, 10];
+// let x = [40, 100, 1, 5, 25, 10];
 
-function sort(fn,arr)
-{
-    for( let i = 0; i<arr.length-1; i++)
-    {   
-        for( let j = i+1; j<arr.length ; j++)
-        {
-            var hasil = fn(arr[i],arr[j]);
-            if(hasil >= 0)
-            {
-                let tempt = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tempt;
-            }          
-        }
-    }
-    return arr;
-}
-var xAsc = sort(function(a,b){return a-b;},x);
-console.log(xAsc);
+// function sort(fn,arr)
+// {
+//     for( let i = 0; i<arr.length-1; i++)
+//     {   
+//         for( let j = i+1; j<arr.length ; j++)
+//         {
+//             var hasil = fn(arr[i],arr[j]);
+//             if(hasil >= 0)
+//             {
+//                 let tempt = arr[i];
+//                 arr[i] = arr[j];
+//                 arr[j] = tempt;
+//             }          
+//         }
+//     }
+//     return arr;
+// }
+// var xAsc = sort(function(a,b){return a-b;},x);
+// console.log(xAsc);
 
-var xDsc = sort(function(a,b){ return b-a;},x);
-console.log(xDsc);
+// var xDsc = sort(function(a,b){ return b-a;},x);
+// console.log(xDsc);
 
  //////////////////////////////////////////////////////////////////////////
 //SOLVE IT DESCENDING SORT
