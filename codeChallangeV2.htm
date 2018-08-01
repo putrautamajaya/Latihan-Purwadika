@@ -1,0 +1,232 @@
+<head>
+        <title>Code Challage</title>
+    </head>
+
+Input Besar Kotak Yang di Inginkan:<br/>
+<input id = "besarKotak" type="number"><input type="button"  onclick="initial()" value="Sumbit"><br/><br/>
+<input id = "kanan" type="button" onclick="putarkiri()" value="kiri">
+<input id = "kiri" type="button" onclick="putarkanan()" value="kanan"><br/><br/>
+
+<p id = "hasil"></p>
+
+<script>
+
+    function initial()
+    {
+        isiKoding(putar=0);
+    }
+
+    function putarkanan()
+    {
+        putar++;
+        isiKoding(putar);
+    }
+
+    function putarkiri()
+    {
+        putar--;
+        isiKoding(putar);
+    }    
+    
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 0 KALI
+
+function isiKoding(putar)
+{
+    let besarKotak = document.getElementById("besarKotak").value;
+    let brCount = 0;
+    let coloum = [];
+
+    let posisiputar = putar % 4;
+    var putar = posisiputar;
+
+    if(putar<1 && putar>=0 )
+    {
+        let count = 0;
+        
+        for(let j = 0 ; j<besarKotak ; j++)
+        {
+            for(let i=0 ; i<besarKotak ; i++)
+            {
+                count++;
+                coloum.push(count);       
+            }
+
+            coloum.push('<br/>');
+            brCount++;
+        }
+
+        let formatText = '&nbsp&nbsp&nbsp&nbsp' + coloum[0];
+            
+        for(let k = 1; k<(besarKotak*besarKotak)+brCount ; k++)
+        {
+            if(k<10)
+            {
+                formatText += '&nbsp&nbsp&nbsp&nbsp' + coloum[k]; 
+            }
+            else if(k>=10) 
+            {
+                formatText += '&nbsp&nbsp' + coloum[k];
+            }
+            
+        }
+
+    document.getElementById('hasil').innerHTML = formatText;
+    }
+    
+    
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 1 KALI
+        
+    if(putar>0 && putar<2 || putar == -3)
+    {
+        let count = 0;
+
+        for(let j = 0 ; j<besarKotak ; j++)
+        {
+            for(let i=0 ; i<besarKotak ; i++)
+            {
+                coloum.push('');
+            }
+
+            coloum.push('<br/>'); 
+        }
+
+        let rowKe = 0;
+        let countShiftColoum = 0;
+        let coloumKe = 1;
+
+        for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+        {
+            count++;
+            coloum[(besarKotak-coloumKe)+(besarKotak*rowKe)+rowKe] = count;
+                
+            countShiftColoum++;
+
+            if(countShiftColoum ==  besarKotak)
+            {
+                coloumKe++;
+                countShiftColoum = 0;
+            }
+
+            rowKe++;
+
+            if(rowKe == besarKotak)
+            {
+                rowKe = 0;
+                brCount++;
+            }
+
+        }
+
+        let formatText = '&nbsp&nbsp' + coloum[0];
+
+        for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+        {
+            formatText += '&nbsp&nbsp' + coloum[k];    
+        }
+
+        document.getElementById('hasil').innerHTML = formatText;
+    }
+        
+        
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 2 KALI
+        
+    if(putar>1 && putar<3 || putar == -2)
+    {
+        let count = besarKotak**2;
+
+        for(let j = 0 ; j<besarKotak ; j++)
+        {
+            
+
+            for(let i=0 ; i<besarKotak ; i++)
+            { 
+                coloum.push(count);
+                count--;     
+            }
+
+            coloum.push('<br/>');
+            brCount++;
+        }
+
+
+        let formatText = '&nbsp&nbsp' + coloum[0];
+            
+        for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+        {
+        
+            if(k<besarKotak**2) 
+            {
+                formatText += '&nbsp&nbsp' + coloum[k];
+            }
+            else if(k>=besarKotak**2)
+            {
+                formatText += '&nbsp&nbsp&nbsp&nbsp' + coloum[k]; 
+            }
+            
+        }
+        document.getElementById('hasil').innerHTML = formatText;
+    }
+        
+        
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 3 KALI
+    
+    if(putar>2 && putar<4 || putar == -1)
+    {
+            let count = 0;
+
+        for(let j = 0 ; j<besarKotak ; j++)
+        {
+            for(let i=0 ; i<besarKotak ; i++)
+            {
+                coloum.push('');
+            }
+
+            coloum.push('<br/>'); 
+        }
+
+        let rowKe = 0;
+        let countShiftColoum = 0;
+        let coloumKe = 0;
+
+        for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+        {
+            count++;
+            coloum[(rowKe+coloumKe)+(besarKotak*rowKe)] = count;
+                
+            countShiftColoum++;
+
+            if(countShiftColoum ==  besarKotak)
+            {
+                coloumKe++;
+                countShiftColoum = 0;
+            }
+
+            rowKe++;
+
+            if(rowKe == besarKotak)
+            {
+                rowKe = 0;
+                brCount++;
+            }
+
+        }
+
+        let formatText = '&nbsp&nbsp' + coloum[0];
+
+        for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+        {
+            formatText += '&nbsp&nbsp' + coloum[k];    
+        }
+
+        document.getElementById('hasil').innerHTML = formatText;
+    }
+    console.log(coloum);
+    } 
+    
+</script>
+    
+    

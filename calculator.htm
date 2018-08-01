@@ -1,0 +1,99 @@
+<head>
+    <title>Calculator - Putra</title>
+</head>
+
+<p id="display"></p>
+<p id="hasil"></p>
+
+<br/><br/>
+<input type="button" onclick="display(this.value)" value="( ">&nbsp;
+<input type="button" onclick="display(this.value)" value=" )">&nbsp;
+<input type="button" onclick="display(this.value)" value="%">&nbsp;
+<input type="button" onclick="AC()" value="AC">
+<br/><br/>
+<input type="button" onclick="display(this.value)" value="1">&nbsp;
+<input type="button" onclick="display(this.value)" value="2">&nbsp;
+<input type="button" onclick="display(this.value)" value="3">&nbsp;
+<input type="button" onclick="display(this.value)" value="/">
+<br/><br/>
+<input type="button" onclick="display(this.value)" value="4">&nbsp;
+<input type="button" onclick="display(this.value)" value="5">&nbsp;
+<input type="button" onclick="display(this.value)" value="6">&nbsp;
+<input type="button" onclick="display(this.value)" value="x">
+<br/><br/>
+<input type="button" onclick="display(this.value)" value="7">&nbsp;
+<input type="button" onclick="display(this.value)" value="8">&nbsp;
+<input type="button" onclick="display(this.value)" value="9">&nbsp;
+<input type="button" onclick="display(this.value)" value="-">
+<br/><br/>
+<input type="button" onclick="display(this.value)" value="0">&nbsp;
+<input type="button" onclick="display(this.value)" value=".">&nbsp;
+<input type="button" onclick="calculation()" value="=">&nbsp;
+<input type="button" onclick="display(this.value)" value="+">
+
+<script>
+
+    let tampilan = '';
+    let fungsiArray = [];
+
+    function display(val)
+    {
+        let tempt = [];
+
+        tampilan += val;
+
+        fungsiArray = tampilan.split('');
+
+        for(let i=0; i<fungsiArray.length; i++)
+        {
+            if(fungsiArray[i] !='+' && fungsiArray[i-1] !='+' && fungsiArray[i-1] !=undefined)
+            {
+                tempt = fungsiArray[i].concat(fungsiArray[i-1])
+                fungsiArray[i] = tempt;
+                // fungsiArray.splice([i-1], 1);
+                // console.log(ungsiArray[i]);
+                
+            }
+        }
+
+        
+
+        document.getElementById('display').innerHTML = tampilan;
+
+        console.log(fungsiArray);
+        
+    }
+
+    function calculation()
+    {
+        let hasil = 0;
+        let count = 0;
+
+        for(let i=0; i<fungsiArray.length; i++)
+        {
+            if(fungsiArray[i] == '+' && count==0)
+            {
+                hasil = parseInt(fungsiArray[i+1]) + parseInt(fungsiArray[i-1]);
+                
+                count++;
+                console.log(fungsiArray[i+1]);
+                console.log(fungsiArray[i-1]);
+            }
+            else if(fungsiArray[i] == '+' && count!=0)
+            {
+                hasil += parseInt(fungsiArray[i+1]);
+                console.log(parseInt(fungsiArray[i+1]));
+            }
+        }
+        document.getElementById('hasil').innerHTML = hasil;
+        
+    }
+
+    function AC()
+    {
+        tampilan = '';
+        hasil = '';
+        document.getElementById('display').innerHTML = tampilan;
+        document.getElementById('hasil').innerHTML = hasil;
+    }
+</script>

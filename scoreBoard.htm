@@ -1,0 +1,83 @@
+<head>
+    <title>Score Board - Putra</title>
+</head>
+
+<form>
+    Input : 
+    <input id="input" type="text" placeholder="Input Score">
+    <input type="button" onclick="fungsi()" value="Submit">
+</form>
+
+<table id="hasil"></table>
+
+<script>
+    let satu = '<th>    <br/>    |<br/>    |</th>';
+    let dua = '<th> __ <br/> __|<br/>|__ </th>';
+    let tiga = '<th> __<br/> __|<br/> __|</th>';
+    let empat = '<th><br/>| __ |<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</th>';
+    let lima = '<th>&nbsp__&nbsp<br/>|&nbsp__&nbsp<br/>&nbsp__&nbsp|</th>';
+    let enam = '<th>&nbsp__ <br/>|&nbsp__&nbsp<br/>|&nbsp__&nbsp|</th>';
+    let tujuh = '<th>&nbsp__&nbsp<br/>&nbsp&nbsp&nbsp&nbsp&nbsp|<br/>&nbsp&nbsp&nbsp&nbsp&nbsp|</th>';
+    let delapan = '<th>&nbsp&nbsp__&nbsp<br/>|&nbsp__&nbsp|<br/>|&nbsp__&nbsp|</th>';
+    let sembilan = '<th>&nbsp&nbsp__&nbsp<br/>|&nbsp__&nbsp|<br/>&nbsp&nbsp__&nbsp|</th>';
+    let nol = '<th>&nbsp&nbsp__&nbsp<br/>|&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|<br/>|&nbsp__&nbsp|</th>';
+    
+    function fungsi()
+    {
+        let isiAngka = '';
+        let input = document.getElementById('input').value;
+        let tempt = input.split('');
+        console.log(tempt);
+
+        for(let index in tempt)
+        {
+            if(tempt[index] == 0)
+            {
+                isiAngka += nol;
+            }
+            else if(tempt[index] == 1)
+            {
+                isiAngka += satu;
+            }
+            else if(tempt[index] == 2)
+            {
+                isiAngka += dua;
+            }
+            else if(tempt[index] == 3)
+            {
+                isiAngka += tiga;
+            }
+            else if(tempt[index] == 4)
+            {
+                isiAngka += empat;
+            }
+            else if(tempt[index] == 5)
+            {
+                isiAngka += lima;
+            }
+            else if(tempt[index] == 6)
+            {
+                isiAngka += enam;
+            }
+            else if(tempt[index] == 7)
+            {
+                isiAngka += tujuh;
+            }
+            else if(tempt[index] == 8)
+            {
+                isiAngka += delapan;
+            }
+            else if(tempt[index] == 9)
+            {
+                isiAngka += sembilan;
+            }
+        }
+
+        let formatScore = `<tr>${isiAngka}</tr>`;
+
+        document.getElementById('hasil').innerHTML = formatScore;
+        console.log(formatScore);
+
+    }
+
+</script>

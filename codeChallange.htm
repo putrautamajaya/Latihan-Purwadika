@@ -1,0 +1,229 @@
+<head>
+    <title>Code Challage</title>
+</head>
+
+<input id = "kanan" type="button" onclick="putarkiri()" value="kiri">
+<input id = "kiri" type="button" onclick="putarkanan()" value="kanan">
+<br/>
+<br/>
+<p id = "hasil"></p>
+<script>
+
+    
+    
+    
+    let coloum = [];
+    let brCount = 0;
+
+    let besarKotak = prompt('Input seberapa besar kotak :');
+    
+    var putar = 0;
+   
+
+    // function putarkanan()
+    // {
+    //     return putar++;
+    // }
+    
+
+    // function putarkiri()
+    // {
+    //     return putar--;
+    // }
+
+    var putar = prompt('diputar ke kanan brapa kali: ');
+
+   
+
+    
+    let posisiputar = putar % 4;
+    var putar = posisiputar;
+
+    
+
+    
+
+    
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 0 KALI
+
+if(putar<1)
+{
+    let count = 0;
+
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            count++;
+            coloum.push(count);       
+        }
+
+        coloum.push('<br/>');
+        brCount++;
+    }
+        
+    for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+    {
+        if(k<9)
+        {
+            document.write('&nbsp&nbsp&nbsp&nbsp' + coloum[k]); 
+        }
+        else if(k>=9) 
+        {
+            document.write('&nbsp&nbsp' + coloum[k]);
+        }
+        
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 1 KALI
+
+if(putar>0 && putar<2)
+{
+    let count = 0;
+
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            coloum.push('');
+        }
+
+        coloum.push('<br/>'); 
+    }
+
+    let rowKe = 0;
+    let countShiftColoum = 0;
+    let coloumKe = 1;
+
+    for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+    {
+        count++;
+        coloum[(besarKotak-coloumKe)+(besarKotak*rowKe)+rowKe] = count;
+            
+        countShiftColoum++;
+
+        if(countShiftColoum ==  besarKotak)
+        {
+            coloumKe++;
+            countShiftColoum = 0;
+        }
+
+        rowKe++;
+
+        if(rowKe == besarKotak)
+        {
+            rowKe = 0;
+            brCount++;
+        }
+
+    }
+
+    for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+    {
+            document.write('&nbsp&nbsp' + coloum[k]);    
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 2 KALI
+
+if(putar>1 && putar<3)
+{
+    let count = besarKotak**2;
+
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        
+
+        for(let i=0 ; i<besarKotak ; i++)
+        { 
+            coloum.push(count);
+            count--;     
+        }
+
+        coloum.push('<br/>');
+        brCount++;
+    }
+        
+    for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+    {
+    
+        if(k<besarKotak**2) 
+        {
+            document.write('&nbsp&nbsp' + coloum[k]);
+        }
+        else if(k>=besarKotak**2)
+        {
+            document.write('&nbsp&nbsp&nbsp&nbsp' + coloum[k]); 
+        }
+        
+    }
+}
+
+
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 3 KALI
+
+if(putar>2 && putar<4)
+{
+        let count = 0;
+
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            coloum.push('');
+        }
+
+        coloum.push('<br/>'); 
+    }
+
+    let rowKe = 0;
+    let countShiftColoum = 0;
+    let coloumKe = 0;
+
+    for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+    {
+        count++;
+        coloum[(rowKe+coloumKe)+(besarKotak*rowKe)] = count;
+            
+        countShiftColoum++;
+
+        if(countShiftColoum ==  besarKotak)
+        {
+            coloumKe++;
+            countShiftColoum = 0;
+        }
+
+        rowKe++;
+
+        if(rowKe == besarKotak)
+        {
+            rowKe = 0;
+            brCount++;
+        }
+
+    }
+
+    for(let k = 0; k<(besarKotak*besarKotak)+brCount ; k++)
+    {
+            document.write('&nbsp&nbsp' + coloum[k]);
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////
+    
+    console.log(coloum);
+    
+
+
+</script>
+

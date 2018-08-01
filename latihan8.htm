@@ -1,0 +1,171 @@
+<head>
+    <title>form boyband</title>
+
+    <style> 
+        table, th, td 
+        {
+        border: 2px solid blue;
+        border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<b>Form Boyband</b><br/><br/>
+
+Nama : <input id="name" type="text"><br/><br/>
+Umur : <input id="age" type="number"><br/><br/>
+Tinggi : <input id="height" type="number"><br/><br/>
+
+Suara : <select id="voice">
+            <option value="soprano">soprano</option>
+            <option value="Mezzo-soprano">Mezzo-soprano</option>
+            <option value="Alto">Alto</option>
+            <option value="Countertenor">Countertenor</option>
+            <option value="Tenor">Tenor</option>
+            <option value="Bariton">Bariton</option>
+            <option value="Bass">Bass</option>   
+        </select>
+        <br/><br/>
+
+Ras :   <select id="rass">
+            <option value="Asia">Asia</option>
+            <option value="Eropa">Eropa</option>
+            <option value="Amerika">Amerika</option>
+            <option value="Arab">Arab</option>  
+        </select>
+        <br/><br/>
+
+<input type="button" onclick="daftar()" value="submit">
+<input id="sort" type="button" onclick="sortNama()" value="sort nama">
+<input id="sort" type="button" onclick="sortUmur()" value="sort umur">
+
+<table id = "hasil"></table>
+
+<script>
+class peserta
+{
+    constructor(nama, umur, tinggi, suara, ras)
+    {
+        this.nama = nama;
+        this.umur = umur;
+        this.tinggi = tinggi;
+        this.suara = suara;
+        this.ras = ras;
+    }
+}
+
+let memori = [];
+let memoriFormatTabel;
+let count = -1;
+function daftar()
+{
+    let nama = document.getElementById("name").value;
+    let umur = document.getElementById("age").value;
+    let tinggi = document.getElementById("height").value;
+    let suara = document.getElementById("voice").value;
+    let ras = document.getElementById("rass").value;
+
+    //tingginy hrus di atas 150
+    if(tinggi>150)
+    {
+        let pendaftar = new peserta(nama,umur,tinggi,suara,ras);
+        memori.push(pendaftar);
+        count++;  
+    }
+
+    console.log(memori);
+
+    let memoriFormatTabel = `<tr>
+                            <th> Nama </th>
+                            <th> Umur </th>
+                            <th> Tinggi </th>
+                            <th> Suara </th>
+                            <th> Ras </th>
+                            </tr>`
+
+    for(let i in memori)
+    {
+    let formatTabel =   `<tr>
+                        <td>${memori[i].nama}</td>
+                        <td>${memori[i].umur}</td>
+                        <td>${memori[i].tinggi}</td>
+                        <td>${memori[i].suara}</td>
+                        <td>${memori[i].ras}</td>
+                        </tr>`;
+
+    memoriFormatTabel += formatTabel;
+    }
+
+    document.getElementById("hasil").innerHTML = memoriFormatTabel;
+
+    
+
+}
+
+function sortNama()
+{
+
+    memori.sort(function(a, b)
+    {var x = a.nama.toLowerCase();
+    var y = b.nama.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;});
+
+    console.log(memori);
+
+    let memoriFormatTabel = `<tr>
+                            <th> Nama </th>
+                            <th> Umur </th>
+                            <th> Tinggi </th>
+                            <th> Suara </th>
+                            <th> Ras </th>
+                            </tr>`
+
+    for(let i in memori)
+    {
+    let formatTabel =   `<tr>
+                        <td>${memori[i].nama}</td>
+                        <td>${memori[i].umur}</td>
+                        <td>${memori[i].tinggi}</td>
+                        <td>${memori[i].suara}</td>
+                        <td>${memori[i].ras}</td>
+                        </tr>`;
+
+    memoriFormatTabel += formatTabel;
+    }
+    document.getElementById("hasil").innerHTML = memoriFormatTabel;
+}
+
+function sortUmur()
+{
+    memori.sort(function(a, b){return a.umur - b.umur});
+
+    console.log(memori);
+
+    let memoriFormatTabel = `<tr>
+                            <th> Nama </th>
+                            <th> Umur </th>
+                            <th> Tinggi </th>
+                            <th> Suara </th>
+                            <th> Ras </th>
+                            </tr>`
+
+    for(let i in memori)
+    {
+    let formatTabel =   `<tr>
+                        <td>${memori[i].nama}</td>
+                        <td>${memori[i].umur}</td>
+                        <td>${memori[i].tinggi}</td>
+                        <td>${memori[i].suara}</td>
+                        <td>${memori[i].ras}</td>
+                        </tr>`;
+
+    memoriFormatTabel += formatTabel;
+    }
+    document.getElementById("hasil").innerHTML = memoriFormatTabel;
+}
+
+
+
+</script>

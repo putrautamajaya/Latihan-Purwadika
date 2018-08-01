@@ -1,0 +1,143 @@
+<head>
+    <title>Hoki Hoki bento</title>
+</head>
+
+<script>
+    alert('Selamat datang di Hoki-Hoki Bento!')
+    
+    let harga;
+    let pilihanMenu;
+    let daftarCart = [];
+    let paketBento = [];
+    let hargaBento = [];
+
+    
+    let arrayKe = 0;
+    let arrayBentoA = 0;
+    let arrayBentoB = 0;
+    let arrayBentoC = 0;
+
+    let paketBentoA = 0;
+    let paketBentoB = 0;
+    let paketBentoC = 0;
+    let totalHarga = 0;
+    let totalBentoA;
+    let totalBentoB;
+    let totalBentoC;
+
+
+    for(;;)
+    {
+        let tampilanPertama = prompt('1. Lihat & pesan menu\n2. Lihat Cart\n3. Bayar\n4. Keluar\n\nInput Pilihan:');
+
+        if(tampilanPertama == 1)
+        {
+        pilihanMenu = prompt('1. Paket Bento A Rp 20.000 \n2. Paket Bento B Rp 25.000 \n3. Paket bento C RP 30.000 \n\n Menu yang anda pilih:');
+            if(pilihanMenu == 1)
+            {
+                if(paketBentoA<1)
+                {
+                    daftarCart.push('Paket Bento A');
+                    paketBento.push(1);
+                    hargaBento.push(20000);
+                    arrayKe++;
+                    arrayBentoA = arrayKe-1;
+                }
+                else if(paketBentoA>0)
+                {
+                    paketBento[arrayBentoA]++;
+                }
+                
+                paketBentoA++;  
+            }
+            if(pilihanMenu == 2)
+            {
+                if(paketBentoB<1)
+                {
+                    daftarCart.push('Paket Bento B'); 
+                    paketBento.push(1);
+                    hargaBento.push(25000);
+                    arrayKe++;
+                    arrayBentoB = arrayKe-1;  
+                }  
+                else if(paketBentoB>0)
+                {
+                    
+                    paketBento[arrayBentoB]++;
+                }
+                paketBentoB++;
+            }
+            if(pilihanMenu == 3)
+            {
+                if(paketBentoC<1)
+                {
+                    daftarCart.push('Paket Bento C'); 
+                    paketBento.push(1);
+                    hargaBento.push(30000);
+                    arrayKe++;
+                    arrayBentoC = arrayKe-1;  
+                }  
+                else if(paketBentoC>0)
+                {
+                    
+                    paketBento[arrayBentoC]++;
+                } 
+                paketBentoC++;
+            }
+        
+        } 
+
+        else if(tampilanPertama == 2)
+        {
+            if(daftarCart[1] == undefined && daftarCart[2] == undefined)
+            {
+                alert(paketBento[0] + ' ' + daftarCart[0]);
+            }
+            else if(daftarCart[2] == undefined)
+            {
+                alert(paketBento[0] + ' ' + daftarCart[0] + '\n' + paketBento[1] + ' ' + daftarCart[1]);
+            }
+            else if(hargaBento[0]>0 && hargaBento[1]>0 && hargaBento[2]>0)
+            {
+                alert(paketBento[0] + ' ' + daftarCart[0] + '\n' + paketBento[1] + ' ' + daftarCart[1]+ '\n' + paketBento[2] + ' ' + daftarCart[2]);
+            } 
+        }
+        
+        else if(tampilanPertama == 3) 
+        {
+            if(daftarCart[1] == undefined && daftarCart[2] == undefined)
+            {
+                totalBento0 = paketBento[0]*hargaBento[0];
+                alert(paketBento[0] + ' ' + daftarCart[0] + '      ' + totalBento0 + '\n\nTotal Harga : ' + totalBento0);
+            }
+           
+            else if(daftarCart[2] == undefined)
+            {
+                totalBento0 = paketBento[0]*hargaBento[0];
+                totalBento1 = paketBento[1]*hargaBento[1];
+                totalHarga = totalBento0 + totalBento1;
+                alert(paketBento[0]+ ' ' + daftarCart[0] + '      ' + totalBento0 + '\n' + paketBento[1] + ' ' + daftarCart[1] + '      ' + totalBento1 + '\n\nTotal Harga : ' + totalHarga);
+            }
+            
+            else if(paketBento[0]>0 && paketBento[1]>0 && paketBento[2]>0)
+            {
+                totalBento0 = paketBento[0]*hargaBento[0];
+                totalBento1 = paketBento[1]*hargaBento[1];
+                totalBento2 = paketBento[2]*hargaBento[2];
+                totalHarga = totalBento0 + totalBento1 + totalBento2;
+                alert(paketBento[0] + ' ' + daftarCart[0] + '      ' + totalBento0 + '\n' + paketBento[1] + ' ' + daftarCart[1] + '      ' + totalBento1 + '\n' + paketBento[2] + ' ' + daftarCart[2] + '      ' + totalBento2  + '\n\nTotal Harga : ' + totalHarga); 
+            }   
+            
+        }
+
+        else if(tampilanPertama == 4)
+        {
+            break;
+        }
+    }
+
+    alert('terimakasih sudah memesan makanan di Hoki-Hoki Bento.');
+    
+    
+
+</script>

@@ -1,0 +1,135 @@
+<head>
+    <title>Latihan 2 Purwadika</title>
+</head>
+
+<body>
+        <!-- <script src="latihan2.js" />   -->
+        <h1 id='random'></h1>
+    <script>
+
+        // var bisa di definisikan dua kali
+        // let cuman bisa 1 kali di definisikan
+
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // let nama = 'Andi';
+        // let usia = 22;
+        // let jomblo = true;
+        // let kerja;
+
+        // var hasil = 5 + 2;
+        // console.log(hasil);
+        // console.log(5+2);
+        
+        // var typeNama = typeof(nama);
+        // console.log(typeNama);
+        // console.log(typeof(typeNama));
+        // console.log(typeof(nama));
+        // console.log(typeof(usia));
+        // console.log(typeof(jomblo));
+        // console.log(typeof(kerja));
+        // console.log(kerja);
+
+      
+        
+        
+        // solve it 1
+        let x = 4;
+        let y = 3;
+        let z = 2;
+
+        let hasil = ((x + y * z) / (x * y));
+        let w = Math.pow(hasil , z); // atau bisa juga hasil**z
+        
+        console.log(w)
+        
+        // solve it 2
+        let inputAngka = prompt('Input Angka Bebas : '); //input dari prompt sekalu string
+        alert('Hasil Kuadrat dari ' + inputAngka + ' = ' + (inputAngka * inputAngka));
+
+        
+        // solve it 3
+        let akarPangkatTiga = Math.cbrt(8);
+        console.log(akarPangkatTiga);
+
+        //solve it 4
+        let hari = 485;
+        let satuTahun = 360;
+        let satuBulan = 30;
+        let satuMinggu = 7;
+        let tahun = Math.floor(hari / satuTahun);
+        let bulan = Math.floor((hari % satuTahun) / satuBulan);
+        let minggu = Math.floor((hari % bulan) / satuMinggu);
+        let sisaHari = hari % satuBulan;
+
+        console.log(tahun + ' tahun ' + bulan + ' bulan ' + minggu + ' minggu ' + sisaHari + ' hari ');
+
+
+        //solve it 5
+        let usiaTotal = 49;
+        let ratioTotal = 14;
+        let usiaPerSatuRatio = usiaTotal / ratioTotal;
+
+        let usiaAndi = usiaPerSatuRatio*4;
+        let usiaBudi = usiaPerSatuRatio*10;
+
+        let usiaAndiTrakhir = Math.round(usiaAndi + 2);
+        let usiaBudiTrakhir = Math.round(usiaBudi + 2);
+        console.log('umur andi 2 tahun lagi: ' + usiaAndiTrakhir);
+        console.log('umur budi 2 tahun lagi: ' + usiaBudiTrakhir);
+
+
+        //solve it 6
+        let tanggalHariIni = new Date();
+        console.log('hari ini tanggal' + ' = ' + tanggalHariIni.getDate() + '-' + (tanggalHariIni.getMonth() + 1 ) + '-' + tanggalHariIni.getFullYear());
+        console.log('kemarin tanggal' + ' = ' + (tanggalHariIni.getDate() - 1) + '-' + (tanggalHariIni.getMonth() + 1 ) + '-' + tanggalHariIni.getFullYear());
+        console.log('besok ini tanggal' + ' = ' + (tanggalHariIni.getDate() + 1) + '-' + (tanggalHariIni.getMonth() + 1 ) + '-' + tanggalHariIni.getFullYear());
+
+
+        //solve it 7
+        let haloDunia = 'Halo Dunia';
+        let arrHaloDunia = ['halo', 'dunia'];
+        console.log(arrHaloDunia.length);
+        console.log(haloDunia.length);
+        console.log(haloDunia.split('a').length- 1);
+        
+
+        //solve it 8
+        let jarak = 120;
+        let kecepatanMobilA = 60;
+        let kecepatanMobilB = 40;
+        let time = jarak/(kecepatanMobilA+kecepatanMobilB);
+       
+        let jam = 60;
+        let timeInMinute = time * jam;
+        let sekarangJam = 9;
+
+        console.log((sekarangJam + Math.floor(timeInMinute / jam)) + ':' +  (timeInMinute % jam));
+
+        
+        let pukulMulai = 9;
+
+        let lamaWaktuDetik = (120 / ((60/3600) + (40/3600)));
+        console.log('lama waktu detik: ' + lamaWaktuDetik);
+
+        let jamTabrakan = pukulMulai + (Math.floor(lamaWaktuDetik/3600));
+        console.log('jam tabrakan: ' + jamTabrakan);
+
+        let menitTabrakan = Math.floor((lamaWaktuDetik%3600)/60);
+        console.log('menit tabrakan: ' + menitTabrakan);
+
+        let detikTabrakan = ((lamaWaktuDetik%3600)%60);
+        console.log('detik tabrakan: ' + detikTabrakan);
+
+
+        //solve it 9 
+        
+
+        document.getElementById('random').innerHTML = Math.floor(Math.random() * 100) +1;
+
+
+        
+         
+        </script>
+        
+</body>

@@ -1,0 +1,250 @@
+<head>
+    <title>Code Challage v3</title>
+
+    <style> 
+        table, th, td 
+        {
+        border: 2px solid blue;
+        border-collapse: collapse;
+        }
+    </style>
+</head>
+
+Input Besar Kotak Yang di Inginkan:<br/>
+<input id = "besarKotak" type="number"><input type="button"  onclick="initial()" value="Sumbit"><br/><br/>
+<input id = "kanan" type="button" onclick="putarkiri()" value="kiri">
+<input id = "kiri" type="button" onclick="putarkanan()" value="kanan"><br/><br/>
+
+<table id="hasil"></table>
+
+<script>
+
+    function initial()
+    {
+        isiKoding(putar=0);
+    }
+
+    function putarkanan()
+    {
+        putar++;
+        isiKoding(putar);
+    }
+
+    function putarkiri()
+    {
+        putar--;
+        isiKoding(putar);
+    }    
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 0 KALI
+
+function isiKoding(putar)
+{
+    
+let besarKotak = document.getElementById("besarKotak").value;
+let brCount = 0;
+let coloum = [];
+
+let barisCount = 1;
+let innerCount = 0;
+
+let posisiputar = putar % 4;
+var putar = posisiputar;
+
+if(putar<1 && putar>=0 )
+{
+    let count = 0;
+    
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            count++;
+            coloum.push(count);       
+        }
+        brCount++;
+    }
+
+    let formatText =   "<tr>";
+
+    for(let k = 0; k<(besarKotak*besarKotak); k++)
+    {
+        
+        formatText += "<th>" + coloum[k] + "</th>";
+
+        if(k == besarKotak-1 || k == barisCount*besarKotak-1)
+        {
+            formatText += "</tr><tr>";
+        }
+
+        if(innerCount == besarKotak)
+        {
+            innerCount = 0;
+            barisCount++;
+        }
+        innerCount++;
+    }
+
+document.getElementById('hasil').innerHTML = formatText;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 1 KALI
+            
+if(putar>0 && putar<2 || putar == -3)
+{
+    let count = 0;
+    let rowKe = 0;
+    let countShiftColoum = 0;
+    let coloumKe = 1;
+
+    for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+    {
+        count++;
+        coloum[(besarKotak-coloumKe)+(besarKotak*rowKe)] = count;
+            
+        countShiftColoum++;
+
+        if(countShiftColoum ==  besarKotak)
+        {
+            coloumKe++;
+            countShiftColoum = 0;
+        }
+
+        rowKe++;
+
+        if(rowKe == besarKotak)
+        {
+            rowKe = 0;
+        }
+
+    }
+
+    let formatText =   "<tr>";
+
+    for(let k = 0; k<(besarKotak*besarKotak); k++)
+    {
+        
+        formatText += "<th>" + coloum[k] + "</th>";
+
+        if(k == besarKotak-1 || k == barisCount*besarKotak-1)
+        {
+            formatText += "</tr><tr>";
+        }
+
+        if(innerCount == besarKotak)
+        {
+            innerCount = 0;
+            barisCount++;
+        }
+        innerCount++;
+    }
+
+    document.getElementById('hasil').innerHTML = formatText;
+}
+    
+    
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 2 KALI
+    
+if(putar>1 && putar<3 || putar == -2)
+{
+    let count = besarKotak**2;
+
+    for(let j = 0 ; j<besarKotak ; j++)
+    {
+        
+        for(let i=0 ; i<besarKotak ; i++)
+        { 
+            coloum.push(count);
+            count--;     
+        }
+    }
+
+let formatText =   "<tr>";
+
+for(let k = 0; k<(besarKotak*besarKotak); k++)
+{
+    
+    formatText += "<th>" + coloum[k] + "</th>";
+
+    if(k == besarKotak-1 || k == barisCount*besarKotak-1)
+    {
+        formatText += "</tr><tr>";
+    }
+
+    if(innerCount == besarKotak)
+    {
+        innerCount = 0;
+        barisCount++;
+    }
+    innerCount++;
+}
+
+document.getElementById('hasil').innerHTML = formatText;
+}
+    
+    
+/////////////////////////////////////////////////////////////////////
+//PUTAR KANAN 3 KALI
+
+if(putar>2 && putar<4 || putar == -1)
+{
+    let count = 0;
+    let rowKe = 0;
+    let countShiftColoum = 0;
+    let coloumKe = 0;
+
+    for(let h = 0 ; h<besarKotak*besarKotak ; h++)
+    {
+        count++;
+        coloum[(rowKe+coloumKe)+((besarKotak-1)*rowKe)] = count;
+            
+        countShiftColoum++;
+
+        if(countShiftColoum == besarKotak)
+        {
+            coloumKe++;
+            countShiftColoum = 0;
+        }
+
+        rowKe++;
+
+        if(rowKe == besarKotak)
+        {
+            rowKe = 0;
+            brCount++;
+        }
+
+    }
+
+    let formatText =   "<tr>";
+
+    for(let k = 0; k<(besarKotak*besarKotak); k++)
+    {
+        
+        formatText += "<th>" + coloum[k] + "</th>";
+
+        if(k == besarKotak-1 || k == barisCount*besarKotak-1)
+        {
+            formatText += "</tr><tr>";
+        }
+
+        if(innerCount == besarKotak)
+        {
+            innerCount = 0;
+            barisCount++;
+        }
+        innerCount++;
+    }
+
+    document.getElementById('hasil').innerHTML = formatText;
+}
+
+console.log(coloum);
+} 
+
+</script>
+

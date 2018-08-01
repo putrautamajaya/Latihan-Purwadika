@@ -1,0 +1,26 @@
+<script>
+let a = '';
+
+let inputAngka = prompt('input angka bebas: ');
+
+for(let i=0 ; i<inputAngka ; i++){
+    for(let j = 0+i ; j<inputAngka ; j++){
+        a += '&nbsp&nbsp&nbsp';
+                
+    }
+    for(let j = 0 ; j<1+i ; j++){
+        a += '&nbsp*';
+
+    }
+    for(let j = 0 ; j<i ; j++){
+        a += '&nbsp*';
+
+    }
+
+     a+='<br/>';
+    
+     
+    
+}
+document.write(a);
+</script>
