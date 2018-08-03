@@ -18,7 +18,8 @@ console.log(a);
 ```
 
 list nama:
+
 nama | usia | tinggi
----- | ---- | ------
+-----|------|-------
 putra|25    |180  
 bobi |20    |175
