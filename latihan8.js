@@ -75,36 +75,36 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 
-// class makhlukHidup
-// {
-//     constructor(nama, usia) 
-//     {
-//     this.namaDpn = nama;
-//     this.umur = usia;
-//     }
-// } 
+class makhlukHidup
+{
+    constructor(nama, usia) 
+    {
+    this.namaDpn = nama;
+    this.umur = usia;
+    }
+} 
 
-// class manusia extends makhlukHidup
-// {
-//     constructor(nama, usia, job, marga) 
-//     {
-//         super(nama,usia);
-//         this.pekerjaan = job;
-//         this.marga = marga;
-//     }
-// } 
+class manusia extends makhlukHidup
+{
+    constructor(nama, usia, job, marga) 
+    {
+        super(nama,usia);
+        this.pekerjaan = job;
+        this.marga = marga;
+    }
+} 
 
-// class guru extends manusia
-// {
-//     constructor(nama, usia, job, marga, bidang) 
-//     {
-//         super(nama,usia, job, marga, bidang);
-//         this.bidang = bidang;
-//     }
-// } 
+class guru extends manusia
+{
+    constructor(nama, usia, job, marga, bidang) 
+    {
+        super(nama,usia, job, marga, bidang);
+        this.bidang = bidang;
+    }
+} 
 
-// var Andi = new guru('Andi', 30, 'PNS', 'programming');
-// console.log(Andi)
+var Andi = new guru('Andi', 30, 'PNS', 'programming');
+console.log(Andi)
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -217,12 +217,15 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 
-var orang = {
-    namaDpn : "Andi",
-    namaBlk : "Susilo",
-    usia : 50,
-    namaFull : function() {
-    return this.namaDpn + " " + this.namaBlk;
-    }
-    }; console.log(orang.namaFull)
-    console.log(orang.namaFull())
+// var orang = 
+// {
+//     namaDpn : "Andi",
+//     namaBlk : "Susilo",
+//     usia : 50,
+//     namaFull : function() 
+//                 {
+//                     return this.namaDpn + " " + this.namaBlk;
+//                 }
+// }; 
+// console.log(orang.namaFull)
+// console.log(orang.namaFull())

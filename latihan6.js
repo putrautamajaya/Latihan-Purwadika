@@ -232,21 +232,25 @@
 
 //////////////////////////////////////////////////////////////////////////
 
-let buah = ['Banana', 'Orange','Lemon', 'Apple', 'Mango'];
-let buah2 = buah.slice(1);
-console.log(buah2)
-let buah4 = buah.slice(1,4);
-console.log(buah4)
+// let buah = ['Banana', 'Orange','Lemon', 'Apple', 'Mango'];
+// let buah2 = buah.slice(1);
+// console.log(buah2)
+// let buah4 = buah.slice(1,4);
+// console.log(buah4)
 
 //////////////////////////////////////////////////////////////////////////
 
-// let buah = ['Jeruk','Nanas','Apel'];
-// buah.push('Duku');
-// console.log(buah)
-// buah[buah.length] = 'Pisang';
-// console.log(buah)
-// buah[6] = 'Mangga';
-// console.log(buah)
+let buah = ['Jeruk','Nanas','Apel'];
+buah.push('Duku');
+console.log(buah)
+buah[buah.length] = 'Pisang';
+console.log(buah)
+buah[6] = 'Mangga';
+console.log(buah)
+buah.pop();
+buah.pop();
+buah.pop();
+console.log(buah)
 
 //////////////////////////////////////////////////////////////////////////
 

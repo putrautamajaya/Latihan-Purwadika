@@ -94,8 +94,15 @@
 
         for(let i=0; i<fungsiArray.length; i++)
         {
-            //kalau misalkan array trakhir sama array sebelum terakhir bukan operator maka gabungkan array.
-            if(fungsiArray[i] !='+' && fungsiArray[i-1] !='+' && fungsiArray[i-1] !=undefined)
+            // kalau misalkan array trakhir sama array sebelum terakhir bukan operator maka gabungkan array.
+            if  (   
+                       fungsiArray[i] !='+' && fungsiArray[i-1] !='+' 
+                    && fungsiArray[i] !='x' && fungsiArray[i-1] !='x'
+                    && fungsiArray[i] !='-' && fungsiArray[i-1] !='-'
+                    && fungsiArray[i] !='%' && fungsiArray[i-1] !='%'
+                    && fungsiArray[i] !='/' && fungsiArray[i-1] !='/'
+                    && fungsiArray[i-1] !=undefined
+                )
             {
                 //save sementara array yg di gabungkan ke memori tempt.
                 tempt = fungsiArray[i-1].concat(fungsiArray[i])
@@ -107,6 +114,7 @@
                 //agar i bisa di += 1 untuk lanjut ke array berikutny.
                 i--;
             }
+
         }
 
         document.getElementById('display').innerHTML = tampilan;
@@ -120,28 +128,86 @@
         let hasil = 0;
         let count = 0;
 
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //fungsi penjumlahan.
+
         for(let i=0; i<fungsiArray.length; i++)
-        {
+        {   
+            //pada saat isi array = '+' lakukan...
             if(fungsiArray[i] == '+' && count==0)
             {
+                //menjumlahkan isi array sebelum dan sesudah '+'.
+                //minyimpan hasil jumlah di variable hasil.
                 hasil = parseInt(fungsiArray[i+1]) + parseInt(fungsiArray[i-1]);
-                
+                //count di gunakan untuk perhitungan selanjutny.
                 count++;
-                console.log(fungsiArray[i+1]);
-                console.log(fungsiArray[i-1]);
             }
+            
+            //pada saat isi array = '+' dan bukan yg pertama di temukan, lakukan...
             else if(fungsiArray[i] == '+' && count!=0)
             {
+                //variabel hasil di jumlahkan dengan array selanjutny.
                 hasil += parseInt(fungsiArray[i+1]);
-                console.log(parseInt(fungsiArray[i+1]));
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //fungsi kali.
+        
+        for(let i=0; i<fungsiArray.length; i++)
+        {   
+            //pada saat isi array = 'x' lakukan...
+            if(fungsiArray[i] == 'x' && count==0)
+            {
+                //mengalikan isi array sebelum dan sesudah '+'.
+                //minyimpan hasil kali di variable hasil.
+                hasil = parseInt(fungsiArray[i+1]) * parseInt(fungsiArray[i-1]);
+                //count di gunakan untuk perhitungan selanjutny.
+                count++;
+                console.log(hasil);
+            }
+            
+            //pada saat isi array = '+' dan bukan yg pertama di temukan, lakukan...
+            else if(fungsiArray[i] == 'x' && count!=0)
+            {
+                //variabel hasil di kalikan dengan array selanjutny.
+                hasil *= parseInt(fungsiArray[i+1]);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //fungsi kurang.
+
+        for(let i=0; i<fungsiArray.length; i++)
+        {   
+            //pada saat isi array = '-' lakukan...
+            if(fungsiArray[i] == '-' && count==0)
+            {
+                //mengurangkan isi array sebelum dan sesudah '+'.
+                //minyimpan hasil kurang di variable hasil.
+                hasil = parseInt(fungsiArray[i-1]) - parseInt(fungsiArray[i+1]);
+                //count di gunakan untuk perhitungan selanjutny.
+                count++;
+                console.log(hasil);
+            }
+            
+            //pada saat isi array = '+' dan bukan yg pertama di temukan, lakukan...
+            else if(fungsiArray[i] == '-' && count!=0)
+            {
+                //variabel hasil di kurangkan dengan array selanjutny.
+                hasil -= parseInt(fungsiArray[i+1]);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
         document.getElementById('hasil').innerHTML = hasil;
         
     }
 
     function AC()
     {
+        //me-reset semua value tampilan dan hasil lalu tampilkan.
         tampilan = '';
         hasil = '';
         document.getElementById('display').innerHTML = tampilan;
