@@ -7,7 +7,7 @@
 
 [google](http://google.com)
 
-![ini logo google](image\barcelona.png)
+![ini logo google](3.jpg)
 
 Confusius say:
 >it's okay if you go slow as long as you never stop. :smirk: :sunglasses:
