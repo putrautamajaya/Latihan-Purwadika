@@ -134,3 +134,22 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// let id = ['Ali','Bona','Ali'];
+// let nama = new Set(id);
+// console.log(nama);
+// console.log(nama.size);
+
+// let nama = new Set();
+// nama.add('Adi').add('Budi').add('Adi');
+// console.log(nama);
+// console.log(nama.size);
+// nama.delete('Adi');
+// console.log(nama);
+// console.log(nama.size);
+// nama.clear();
+// console.log(nama);
+// console.log(nama.size);
+
+var str = "Visit W3Schools!";
+var n = str.search("W3Schools");
+console.log(n);
