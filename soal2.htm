@@ -1,0 +1,102 @@
+<head>
+    <title>
+        Soal 2
+    </title>
+</head>
+
+<h1>Drawing Tools</h1>
+<b>
+    1. Persegi<br/>
+    2. Segitiga siku-siku rata kiri <br/>
+    3. Segitiga siku-siku rata kanan <br/>
+    Jenis bangunan: <br/>
+    <input id="drawing" type="number"><br/>
+    Ukuran: <br/>
+    <input id="besarKotak" type="number"><br/>
+    <input type="button" onclick="fungsi()" value="lihat"><br/>
+
+</b>
+
+<p id="hasil"></p>
+
+<script>
+
+    function kotak()
+    {
+        let kotak = '';
+        let besarKotak = document.getElementById('besarKotak').value;
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            for(let j=0 ; j<besarKotak ; j++)
+            {
+                kotak += '&nbsp&nbsp*&nbsp&nbsp';
+            }
+
+            kotak +='<br/>';  
+        }
+        document.getElementById('hasil').innerHTML = kotak;
+        
+    }
+    
+    function segitigaKiri()
+    {
+        
+        let e = 0;
+        let f = 4;
+        let segitiga = '';
+        let besarKotak = document.getElementById('besarKotak').value;
+
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            for(let j = 0 ; j<1+e ; j++)
+            {
+                segitiga += '&nbsp&nbsp*&nbsp&nbsp';
+                
+            }
+            segitiga +='<br/>';  
+            e++;
+        }
+        document.getElementById('hasil').innerHTML = segitiga;
+    }
+
+    function segitigaKanan()
+    {
+        let segitiga ='';
+        let besarKotak = document.getElementById('besarKotak').value;
+
+        for(let i=0 ; i<besarKotak ; i++)
+        {
+            for(let j = 0+i ; j<besarKotak ; j++)
+            {
+                segitiga += '&nbsp&nbsp&nbsp&nbsp&nbsp';    
+            }
+            for(let j = 0 ; j<1+i ; j++)
+            {
+                segitiga += '&nbsp&nbsp*&nbsp';
+            }
+            segitiga +='<br/>';
+        }
+        
+        document.getElementById('hasil').innerHTML = segitiga;
+    }
+    
+    function fungsi()
+    {
+        let drawing = document.getElementById('drawing').value;
+        if(drawing == 1)
+        {
+            kotak();
+        }
+
+        if(drawing == 2)
+        {
+            segitigaKiri();
+        }
+
+        if(drawing == 3)
+        {
+            segitigaKanan();
+        }
+    }
+    
+</script>

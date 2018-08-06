@@ -229,3 +229,28 @@
 // }; 
 // console.log(orang.namaFull)
 // console.log(orang.namaFull())
+
+// function person(x, y, z) {
+//     this.namaDpn = x,
+//     this.namaBlk = y,
+//     this.usia = z,
+//     this.gantiNama = function(a) {
+//     this.namaBlk = a
+//     }
+//     }
+//     let Andi = new person("Andi","Susilo",24)
+//     console.log(Andi.namaBlk)
+//     Andi.gantiNama("Darmawan")
+//     console.log(Andi.namaBlk)
+
+let merk = 'Yamaha';
+let tahun = 2015;
+let mio = {
+merk: merk,
+prod: tahun
+}
+let vixion = {
+merk, tahun
+}
+console.log(mio);
+console.log(vixion);

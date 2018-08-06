@@ -1,0 +1,45 @@
+<head>
+    <title>
+        Soal 1
+    </title>
+</head>
+
+<h1>Jam Dunia</h1>
+
+<p id="hasil"></p>
+
+<script>
+
+    function jamDunia()
+    {   
+        let tanggalHariIni = new Date();
+        let arrayWaktu = [];
+        let waktu = '';
+        
+        for(let i=0; i<10 ;i++)
+        {
+            let jam = tanggalHariIni.getHours()+i;
+            if (jam > 24)
+            {
+                jam = jam - 24;
+            }
+            let menit = tanggalHariIni.getMinutes()+i;
+            if (menit > 60)
+            {
+                menit = menit - 60;
+            }
+            let detik = tanggalHariIni.getSeconds()+i;
+            if (detik > 60)
+            {
+                detik = detik - 60;
+            }
+
+            arrayWaktu.push( jam + ':' + menit + ':' + detik + " * " + 'GMT+'+i);
+            waktu += arrayWaktu[i]+'<br>';
+            document.getElementById('hasil').innerHTML = waktu;
+        }
+    }
+    
+    setInterval(jamDunia, 1000);  
+    
+</script>
