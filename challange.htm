@@ -1,0 +1,787 @@
+<html>
+    <head>
+        <style>
+            table , th, tr
+            {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        input: <input type="number" id="input"><br/>
+                <input type="button" onclick="pushArray()" value="Submit"><br/>
+        <table id="hasil"></table>
+
+        </p><br/>
+        <input type="number" id="rotation"><br/>
+        <input type="button" onclick="turnleft()" value="kiri">
+        <input type="button" onclick="turnright()" value="kanan">
+
+        <script>
+            let arrayData = [];
+            
+            //masukin angka
+            function pushArray()
+            {
+                
+
+                
+                    let formatText =   "<tr>";
+                    let count = 0;
+                    let countPush = 0;
+                        
+                    if (arrayData.length > 15){
+
+}
+else {
+                    arrayData.push(parseInt(document.getElementById('input').value));
+}
+                    // document.getElementById("hasil").innerHTML += arrayData
+                    console.log(arrayData);
+                
+
+                    for(let k = 0; k<arrayData.length; k++)
+                    {
+                    
+                        formatText += "<th>" + arrayData[k] + "</th>";
+
+                        if(k == 3 )
+                        {
+                            formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                                //tambah button sort
+                                formatText += "</tr> <tr>"
+                            count = 0;
+                        }
+                        if(k==7 )
+                        {
+                            formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                                //tambah button sort
+                                formatText += "</tr> <tr>"
+                            count = 0;
+                        }
+                        if(k==11)
+                        {
+                            formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                                //tambah button sort
+                                formatText += "</tr> <tr>"
+                            count = 0;
+                        }
+                        if(k==15)
+                        {
+                            formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                                //tambah button sort
+                            formatText += "</tr> <tr>"
+                            formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                            formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                            formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                            formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                            count = 0;
+                        }
+
+                        //maksimal 16 index
+                        if(k > 15){
+                            arrayData.pop()
+                        }
+                    
+                        count++;
+                    }
+                
+                    document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                    console.log(arrayData[15]);
+               
+            }
+            
+            
+            
+
+           //putar kanan
+            function turnright()
+            {
+                let formatText =   "<tr>";
+                var rotation = document.getElementById('rotation').value
+                let count = 0;
+
+                if (rotation%4 == 1)
+                {
+                    let a = [arrayData[12],arrayData[8],arrayData[4],arrayData[0],
+                            arrayData[13],arrayData[9],arrayData[5],arrayData[1],
+                            arrayData[14],arrayData[10],arrayData[6],arrayData[2],
+                            arrayData[15],arrayData[11],arrayData[7],arrayData[3]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+                else if (rotation%4 == 2)
+                {
+                    let a = [arrayData[15],arrayData[14],arrayData[13],arrayData[12],
+                            arrayData[11],arrayData[10],arrayData[9],arrayData[8],
+                            arrayData[7],arrayData[6],arrayData[5],arrayData[4],
+                            arrayData[3],arrayData[2],arrayData[1],arrayData[0]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+                else if (rotation%4 == 3)
+                {
+                    let a = [arrayData[3],arrayData[7],arrayData[11],arrayData[15],
+                            arrayData[2],arrayData[6],arrayData[10],arrayData[14],
+                            arrayData[1],arrayData[5],arrayData[9],arrayData[13],
+                            arrayData[0],arrayData[4],arrayData[8],arrayData[12]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+                }
+    
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ function turnleft()
+            {
+                let formatText =   "<tr>";
+                var rotation = document.getElementById('rotation').value
+                let count = 0;
+
+                if (rotation%4 == 3)
+                {
+                    let a = [arrayData[12],arrayData[8],arrayData[4],arrayData[0],
+                            arrayData[13],arrayData[9],arrayData[5],arrayData[1],
+                            arrayData[14],arrayData[10],arrayData[6],arrayData[2],
+                            arrayData[15],arrayData[11],arrayData[7],arrayData[3]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+                else if (rotation%4 == 2)
+                {
+                    let a = [arrayData[15],arrayData[14],arrayData[13],arrayData[12],
+                            arrayData[11],arrayData[10],arrayData[9],arrayData[8],
+                            arrayData[7],arrayData[6],arrayData[5],arrayData[4],
+                            arrayData[3],arrayData[2],arrayData[1],arrayData[0]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+                else if (rotation%4 == 1)
+                {
+                    let a = [arrayData[3],arrayData[7],arrayData[11],arrayData[15],
+                            arrayData[2],arrayData[6],arrayData[10],arrayData[14],
+                            arrayData[1],arrayData[5],arrayData[9],arrayData[13],
+                            arrayData[0],arrayData[4],arrayData[8],arrayData[12]]
+                    
+                    console.log(a);
+
+                    arrayData = a;
+
+                    for(let k = 0; k<arrayData.length; k++)
+                {
+                
+                    formatText += "<th>" + arrayData[k] + "</th>";
+
+                    if(k == 3 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris1()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==7 )
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris2()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==11)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris3()' value='sort'></br>" + "</th>";
+                            //tambah button sort
+                            formatText += "</tr> <tr>"
+                        count = 0;
+                    }
+                    if(k==15)
+                    {
+                        formatText += "<th>" + "<input type='button' onclick='baris4()' value='sort'>" + "</th>";
+                            //tambah button sort
+                        formatText += "</tr> <tr>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom1()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom2()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom3()' value='sort'>" + "</th>"
+                        formatText += "<th>" + "<input type='button' onclick='kolom4()' value='sort'>" + "</th>"
+                        count = 0;
+                    }
+
+                    //maksimal 16 index
+                    if(k >=16){
+                        arrayData.pop()
+                    }
+                
+                    count++;
+                }
+                console.log(arrayData[15]);
+                document.getElementById('hasil').innerHTML = formatText+'</tr>'
+                console.log(formatText);
+
+                }
+                }
+
+            //putar kiri
+            //            function turnleft()
+            // {
+            // sort
+            let sort1 = 0;
+            let sort2 = 0;
+            let sort3 = 0;
+            let sort4 = 0;
+            let sort5 = 0;
+            let sort6 = 0;
+            let sort7 = 0;
+            let sort8 = 0;
+            function kolom1(){
+                if(sort1 == 0)
+                {
+                    
+                    var kolom1 = [arrayData[0],arrayData[4],arrayData[8],arrayData[12]]
+                    parseInt(kolom1);
+                    console.log(typeof(kolom1[0]))
+                    
+                    
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                    arrayData[0] = kolom1[0]
+                    arrayData[4] = kolom1[1]
+                    arrayData[8] = kolom1[2]
+                    arrayData[12] = kolom1[3]
+                    pushArray();
+              
+                    sort1 +=2;
+                }
+           
+                else
+                {
+                    parseInt(arrayData);
+                    var kolom1 = [arrayData[0],arrayData[4],arrayData[8],arrayData[12]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                    kolom1.reverse();
+                    arrayData[0] = kolom1[0]
+                    arrayData[4] = kolom1[1]
+                    arrayData[8] = kolom1[2]
+                    arrayData[12] = kolom1[3]
+                    pushArray();
+
+                    sort1 = 0;
+                }
+ 
+            }
+            function kolom2(){
+                if(sort2 == 0)
+                {
+                var kolom1 = [arrayData[1],arrayData[5],arrayData[9],arrayData[13]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[1] = kolom1[0]
+                arrayData[5] = kolom1[1]
+                arrayData[9] = kolom1[2]
+                arrayData[13] = kolom1[3]
+                pushArray();
+                    
+                sort2 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[1],arrayData[5],arrayData[9],arrayData[13]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[1] = kolom1[0]
+                arrayData[5] = kolom1[1]
+                arrayData[9] = kolom1[2]
+                arrayData[13] = kolom1[3]
+                pushArray();
+                
+                sort2 = 0;
+                }
+ 
+            }
+            function kolom3(){
+                if(sort3 == 0)
+                {
+                var kolom1 = [arrayData[2],arrayData[6],arrayData[10],arrayData[14]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[2] = kolom1[0]
+                arrayData[6] = kolom1[1]
+                arrayData[10] = kolom1[2]
+                arrayData[14] = kolom1[3]
+                pushArray();
+                    
+                sort3 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[2],arrayData[6],arrayData[10],arrayData[14]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[2] = kolom1[0]
+                arrayData[6] = kolom1[1]
+                arrayData[10] = kolom1[2]
+                arrayData[14] = kolom1[3]
+                pushArray();
+                sort3 = 0;
+                }
+ 
+            }    
+            function kolom4(){
+                if(sort4 == 0)
+                {
+                var kolom1 = [arrayData[3],arrayData[7],arrayData[11],arrayData[15]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[3] = kolom1[0]
+                arrayData[7] = kolom1[1]
+                arrayData[11] = kolom1[2]
+                arrayData[15] = kolom1[3]
+                pushArray();
+                    
+                sort4 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[3],arrayData[7],arrayData[11],arrayData[15]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[3] = kolom1[0]
+                arrayData[7] = kolom1[1]
+                arrayData[11] = kolom1[2]
+                arrayData[15] = kolom1[3]
+                pushArray();
+                sort4 = 0;
+                }
+ 
+            }    
+            function baris1(){
+                if(sort5 == 0)
+                {
+                var kolom1 = [arrayData[0],arrayData[1],arrayData[2],arrayData[3]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[0] = kolom1[0]
+                arrayData[1] = kolom1[1]
+                arrayData[2] = kolom1[2]
+                arrayData[3] = kolom1[3]
+                pushArray();
+                    
+                sort5 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[0],arrayData[1],arrayData[2],arrayData[3]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[0] = kolom1[0]
+                arrayData[1] = kolom1[1]
+                arrayData[2] = kolom1[2]
+                arrayData[3] = kolom1[3]
+                pushArray();
+                sort5 = 0;
+                }
+ 
+            }    
+            function baris2(){
+                if(sort6 == 0)
+                {
+                var kolom1 = [arrayData[4],arrayData[5],arrayData[6],arrayData[7]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[4] = kolom1[0]
+                arrayData[5] = kolom1[1]
+                arrayData[6] = kolom1[2]
+                arrayData[7] = kolom1[3]
+                pushArray();
+                    
+                sort6 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[4],arrayData[5],arrayData[6],arrayData[7]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[4] = kolom1[0]
+                arrayData[5] = kolom1[1]
+                arrayData[6] = kolom1[2]
+                arrayData[7] = kolom1[3]
+                pushArray();
+                sort6 = 0;
+                }
+ 
+            }
+            function baris3(){
+                if(sort7 == 0)
+                {
+                var kolom1 = [arrayData[8],arrayData[9],arrayData[10],arrayData[11]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[8] = kolom1[0]
+                arrayData[9] = kolom1[1]
+                arrayData[10] = kolom1[2]
+                arrayData[11] = kolom1[3]
+                pushArray();
+                    
+                sort7 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[8],arrayData[9],arrayData[10],arrayData[11]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[8] = kolom1[0]
+                arrayData[9] = kolom1[1]
+                arrayData[10] = kolom1[2]
+                arrayData[11] = kolom1[3]
+                pushArray();
+                sort7 = 0;
+                }
+ 
+            }
+            function baris4(){
+                if(sort8 == 0)
+                {
+                var kolom1 = [arrayData[12],arrayData[13],arrayData[14],arrayData[15]]
+                kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                arrayData[12] = kolom1[0]
+                arrayData[13] = kolom1[1]
+                arrayData[14] = kolom1[2]
+                arrayData[15] = kolom1[3]
+                pushArray();
+                    
+                sort8 +=2;
+                }
+
+            
+                else
+                {
+                    var kolom1 = [arrayData[12],arrayData[13],arrayData[14],arrayData[15]]
+                    kolom1.sort(function(a,b){
+                    return a-b
+                    });
+
+                kolom1.reverse();
+                arrayData[12] = kolom1[0]
+                arrayData[13] = kolom1[1]
+                arrayData[14] = kolom1[2]
+                arrayData[15] = kolom1[3]
+                pushArray();
+                sort8 = 0;
+                }
+ 
+            }
+        </script>
+    </body>    
+</html>
